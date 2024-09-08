@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Workflow_Enhancer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Workflow_Enhancer_jar</output-path>
+    <root id="archive" name="Workflow_Enhancer.jar">
+      <element id="module-output" name="Workflow_Enhancer" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,53 @@
+@startuml
+skin rose
+hide empty members
+title Workflow Enhancer
+
+
+class Workflow {
+    - ArrayList<Block> blocks
+}
+class Block {
+    - ArrayList<Node> nodes
+    - ArrayList<Link> links
+}
+class Node {
+  - int x
+  - int y
+  - String id
+  - Icon icon
+}
+class Activity
+class LogicNode
+class Link {
+    - Node node1
+    - Node node2
+    - String action
+}
+class DomParser {
+    + {static} modifyXml(String WorkflowPath, int tolerance): void
+    + {static} parseXml(String WorkflowPath, int tolerance): LinkedHashMap<String, WorkflowElement>
+    + {static} writeXml(Document, OutputStream): void
+}
+class BlockNode
+class Zip {
+    + {static} unzipArchive(String, String): void
+    - {static} newFile(File, ZipEntry): File
+    + {static} zipArchive(File, File): void
+    + {static} addFile(File, ZipOutputStream, String): void
+    - {static} int BUFFER_SIZE = 1024
+}
+
+Main -- Workflow
+Main -- DomParser
+Main -- Zip
+Block -- Node
+Block -- Link
+Node <|--  Activity
+Node <|-- LogicNode
+Node <|-- BlockNode
+Workflow -- Block
+
+
+
+@enduml
